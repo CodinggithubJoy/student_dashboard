@@ -1,0 +1,102 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jun 07, 2025 at 04:26 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `student_portal`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `image` longblob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `students`
+--
+
+CREATE TABLE `students` (
+  `id` int(11) NOT NULL,
+  `full_name` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `mobile` varchar(15) DEFAULT NULL,
+  `college` varchar(100) DEFAULT NULL,
+  `roll` varchar(50) DEFAULT NULL,
+  `userid` varchar(50) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `full_name`, `email`, `mobile`, `college`, `roll`, `userid`, `password`, `created_at`) VALUES
+(1, 'raja das ', 'raj123@example.com', '4789396', 'netaji', '1', 'raj123', '$2y$10$tpSGaMWzAn51L9NXOvimV.4VT19vlYZRA86L15k7og4QM5uQDzn7K', '2025-05-27 07:13:28'),
+(2, 'balkumar', 'balkumar223@gmail.com', '12345', 'hit', '1', 'balkumar123', '$2y$10$hPw/BfeXEUBvUupVjVzRjeQmp0tUz87NCxr4AAZUiHa/AJFzjhYaq', '2025-05-27 07:31:32'),
+(3, 'manu', 'monu123@gmail.com', '4789336', 'bbit', '1', 'manu1', '$2y$10$bwX3WjpP1sS1cnbXYzwX3OcNRJz7pLTkHSwNkFDPzmSfQaIeBKu.q', '2025-05-27 07:56:36'),
+(4, 'Joy singha', 'joysingha2002@gmail.com', '7908116633', 'MIT', '4786', 'balkumar223@gmail.com', '$2y$10$5pDuk2jj4yymh6r4DL334ebqzW506.078TfEt5onmn5ERMOTSTHh2', '2025-05-30 14:10:49'),
+(5, 'sukanta malik', 'sukanta123@gmail.com', '179636963', 'MIT', '12', 'mailk12', '$2y$10$ZuIeFWerD61BQ/7qBxbe/ee9VeNrJuW2x350Oh18UXWS0qhOHJIVq', '2025-06-05 16:54:05');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `students`
+--
+ALTER TABLE `students`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `userid` (`userid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `students`
+--
+ALTER TABLE `students`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
